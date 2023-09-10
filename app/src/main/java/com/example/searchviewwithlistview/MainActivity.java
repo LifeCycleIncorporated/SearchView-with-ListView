@@ -32,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity.this,R.layout.simple_view,R.id.simple_textViewId,countryNames);
         listView.setAdapter(arrayAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                String value = countryNames[i];
+                Toast.makeText(MainActivity.this, value+" is Clicked"+" "+(i+1), Toast.LENGTH_SHORT).show();
+            }
+        });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
